@@ -1,0 +1,5 @@
+{
+    "require": {
+        "alexusmai/laravel-file-manager": "^3.1"
+    }
+}
