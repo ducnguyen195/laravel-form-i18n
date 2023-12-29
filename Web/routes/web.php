@@ -1,6 +1,10 @@
 <?php
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\User\RegisterController;
+use App\Models\Register;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Auth::routes();
+
+Route::get('/',[RegisterController::class,'index'])->name('user.index');
+
+Route::group(['prefix'=>'user'],function(){
+    Route::get('/',[RegisterController::class,'index'])->name('user.index');
 });
 
